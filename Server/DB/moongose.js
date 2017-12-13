@@ -4,4 +4,4 @@ moongose.Promise = global.Promise;
 
 moongose.connect('mongodb://localhost:27017/TodoApp');
 
-module.exports = { moongose};
+module.exports = {moongose};
