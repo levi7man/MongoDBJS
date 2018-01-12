@@ -6,7 +6,12 @@ const {user} = require('./../Server/models/user');
 var idUser = '5a2483222cb7fe981a84500b'
 
 user.findById(idUser).then((users)=>{
-        console.log('User Find By Id', users);
+    if (!users) {
+        return console.log('Unable to find user');
+    }
+        console.log('find BY id', users);
+}, (e)=>{
+     console.log(e);
 });
 
 user.findOne({
