@@ -28,6 +28,24 @@ app.post('/todos', (req, res)=>{
         res.status(400).send(e);
     });
 });
+
+
+
+app.post('/users', (req, res)=>{
+    var body = _.pick(req.body, ['email', 'password']);
+
+    var user = new User(body);
+
+    user.save().then((done)=>{
+        res.send(done);
+    }, (e)=>{
+        res.status(400).send(e);
+    });
+});
+
+
+
+
 app.get('/todos', (req, res)=>{
     Todo.find().then((todos)=>{
         res.send({todos});
@@ -103,6 +121,9 @@ app.patch('/todos/:id', (req, res)=>{
     });
 
 });
+
+
+
 
 
 app.listen(port, ()=>{
