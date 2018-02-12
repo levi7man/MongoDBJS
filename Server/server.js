@@ -19,7 +19,6 @@ app.post('/todos', (req, res)=>{
     var todo = new Todo({
         text: req.body.text,
         completed: req.body.completed
-
     });
     
     todo.save().then((doc)=>{
